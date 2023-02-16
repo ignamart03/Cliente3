@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <script>
+        function puzzle(n) {
+            if (n % 3 === 0) return true;
+            if (n % 5 === 0) return true;
+            function calcular(target) {
+                if (n === target) return true;
+                if (n > target) return false;
+                return calcular(num + 5) || calcular(num * 3);
+            }
+            return calcular(1);
+        }
+        console.log(puzzle(345));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

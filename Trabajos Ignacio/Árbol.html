@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol</title>
+    <script>
+        //Funcion que acepta como parámetro un nodo padre y te lo devuelv
+        function crearNodoPadre() {
+            var padre = {
+                nombre: "Javier",
+                añoNacim: 1923,
+                sexo: "Masculino",
+                conyuge: "Milagros",
+                añoNacConyuge: 1940,
+                hijos: []
+            }
+            return padre;
+        };
+
+        //Funcion que busca dentro de la lista un nodo recibiendo como parámetros la lista y el nombre del nodo a buscar
+        function buscar(nombrePadre, objeto = padre) {
+            // Comprobar si el objeto actual tiene el nombre buscado
+            if (objeto.nombre === nombrePadre) {
+                return objeto;
+            }
+
+            // Iterar sobre los hijos del objeto actual
+            for (let i = 0; i < objeto.hijos.length; i++) {
+                let hijo = objeto.hijos[i];
+                // Llamar recursivamente la función 'buscar' en cada hijo del objeto actual
+                let resultado = buscar(nombrePadre, hijo);
+                if (resultado) {
+                    return resultado;
+                }
+            }
+
+            // Si no se encontró el objeto con el nombre buscado, devolver 'null'
+            return null;
+        }
+
+        //Funcion para añadir un hijo
+        function añadirHijo(nodo, nodoHijo, lista) {
+            nodo.hijos.push(nodoHijo);
+        };
+
+        function eliminarHijo(padre, nombreHijo) {
+            // Filtrar el array 'hijos' del padre para obtener los hijos que no tengan el nombre a eliminar
+            padre.hijos = padre.hijos.filter(hijo => hijo.nombre !== nombreHijo);
+
+            // Recursivamente llamar la función 'eliminarHijo' para cada hijo del padre actual
+            padre.hijos.forEach(hijo => eliminarHijo(hijo, nombreHijo));
+        }
+
+        //Funcion para listar el objeto de árbol
+        function ListarArbol(lista) {
+            return JSON.stringify(lista, null, 2);
+        };
+
+        //Funcion para convertir el nodo a JSON
+        function convertirAJSON(nodo) {
+            objetoJSON = JSON.stringify(nodo)
+            return objetoJSON;
+        };
+
+        //Funcion que recibe un string y devuleve un objeto en javascript
+        function leerJSON(String) {
+            return JSON.parse(String);
+        };
+
+        //Ejemplo de árbol genealógico.
+        let padre = {
+            nombre: "Javier",
+            añoNacim: 1923,
+            sexo: "Masculino",
+            conyuge: "Milagros",
+            añoNacConyuge: 1940,
+            hijos: [
+                {
+                    nombre: "Pepe",
+                    añoNacim: 1923,
+                    sexo: "Masculino",
+                    conyuge: "Pepa",
+                    añoNacConyuge: 1940,
+                    hijos: [{
+                        nombre: "Manolo2",
+                        añoNacim: 1923,
+                        sexo: "Masculino",
+                        conyuge: "Pepas",
+                        añoNacConyuge: 1940,
+                        hijos: []
+                    }]
+                },
+                {
+                    nombre: "Juan",
+                    añoNacim: 1923,
+                    sexo: "Masculino",
+                    conyuge: "Pepa2",
+                    añoNacConyuge: 1940,
+                    hijos: [{
+                        nombre: "Manolo3",
+                        añoNacim: 1923,
+                        sexo: "Masculino",
+                        conyuge: "Pepas",
+                        añoNacConyuge: 1940,
+                        hijos: []
+                    }]
+                },
+                {
+                    nombre: "Manolo",
+                    añoNacim: 1923,
+                    sexo: "Masculino",
+                    conyuge: "Pepas",
+                    añoNacConyuge: 1940,
+                    hijos: [{
+                        nombre: "Manolo4",
+                        añoNacim: 1923,
+                        sexo: "Masculino",
+                        conyuge: "Pepas",
+                        añoNacConyuge: 1940,
+                        hijos: []
+                    }]
+                }
+            ]
+        }
+        cadenaJSON = convertirAJSON(padre);
+        console.log(leerJSON(cadenaJSON));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

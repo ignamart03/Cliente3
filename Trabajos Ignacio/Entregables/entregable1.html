@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregable1</title>
+    <script>
+        //Funciones Entregable1
+        function arrayALista(elem) {
+            let lista = {};
+            let p = lista;
+            for (i = 0; i < elem.length; ++i) {
+                p.nombre = elem[i];
+                p.nota = null;
+                p.sig = i == elem.length ? null : {};
+                p = p.sig;
+            }
+            return lista;
+        }
+
+        function listaAArray2(obj) {
+            let result = [];
+            //Bucle while que se ejecutará siempre y cuando el valor de obj sea truthy, es decir no sea null, undefined, false, 0, NaN o string vacio
+            while (obj) {
+                result.push(obj.nombre);
+                obj = obj.sig;
+            }
+
+            return result;
+        }
+
+        function personaN(lista, n) {
+            if (!lista || n < 0) {
+                return null;
+            }
+            else if (n === 0) {
+                return { nombre: lista.nombre, nota: lista.nota };
+            }
+            else {
+                return personaN(lista.sig, n - 1);
+            }
+        }
+
+        function modifNota(lista, n, nota) {
+            if (!lista || n < 0) {
+                return null;
+            }
+
+            if (n === 0) {
+                lista.nota = nota;
+                return;
+            }
+
+            return modifNota(lista.sig, n - 1, nota);
+        }
+
+        function añadir(lista, alumno) {
+            let nuevaLista = {
+                nombre: alumno.nombre,
+                nota: alumno.nota,
+                sig: lista
+            };
+
+            return nuevaLista;
+        }
+        
+
+       // Creacion de variables
+         let lista = {
+             nombre: "Marta",
+             nota: null,
+             sig: {
+                 nombre: "Jorge",
+                 nota: null,
+                 sig: {
+                     nombre: "Aitor",
+                     nota: "null",
+                     sig: null
+                 }
+             }
+         }
+         let arrayNombres = ["Marta", "Jorge", "Aitor"];
+        
+         console.log(personaN(lista,2))
+        // modifNota(lista, 2, 6)
+        // console.log(personaN(lista, 2));
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

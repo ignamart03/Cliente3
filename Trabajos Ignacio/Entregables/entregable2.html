@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ignacio Martínez">
+    <title>entregable2</title>
+    <script>
+        function elementosPares(array) {
+            return array.filter(function (element) {
+                return (element % 2 === 0);
+
+            });
+        }
+
+        function elementosPares3(array) {
+            var pares = [];
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] % 2 == 0) {
+                    pares.push(array[i] + 3);
+                }
+            }
+            return pares;
+        }
+
+        function sumaPares(array) {
+            var suma = 0;
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] % 2 == 0) {
+                    suma += (array[i] + 3);
+                }
+            }
+            return suma;
+        }
+
+        lista = [1, 2, 3, 4, 5, 6, 7, 8, 12, 111, 122];
+        console.log(sumaPares(lista))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

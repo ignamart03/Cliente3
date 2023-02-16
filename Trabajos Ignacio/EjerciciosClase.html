@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerciciosClase</title>
+    <script>
+        const arrayNum = [1, 2, 3, 4];
+        const arrayStr = ["Hola", "Hoy", "es", "viernes"];
+        let b = [[1, 2,], [3, 4, 5], [6, 7, 8]]
+
+        const sumaNum = arrayNum.reduce((a, b) => a + b, 0);
+
+
+        const sumaStr = arrayStr.reduce((a, b) => a + b);
+
+
+        let arrayPlano = b.reduce((a, b) => a.concat(b), []);
+
+        let carrito = [
+            {
+                producto: 'Pokemon',
+                cant: 1,
+                precio: 500,
+            },
+            {
+                producto: 'Papel Carta',
+                cant: 1,
+                precio: 10,
+            },
+            {
+                producto: 'pen USB',
+                cant: 2,
+                precio: 20,
+            },
+        ];
+
+        const sumaPrecio = carrito.map(e => {
+            return e.precio * e.cant;
+        });
+
+        const sumaPrecioR = sumaPrecio.reduce((a, v) => {
+            return a + v;
+        }, 0)
+
+        ciudades = [
+            { ciudad: "Madrid", poblacion: 3100000, ApeAl: "Martínez", NombreAl: "Jose Luis" },
+            { ciudad: "Barcelona", poblacion: 1600000, ApeAl: "Colau", NombreAl: "Ada" },
+            { ciudad: "Valencia", poblacion: 786000, ApeAl: "Ribó", NombreAl: "Joan" },
+            { ciudad: "Sevilla", poblacion: 697000, ApeAl: "Muñoz", NombreAl: "Antonio" },
+            { ciudad: "Zaragoza", poblacion: 666000, ApeAl: "Azcón", NombreAl: "Jorge" },
+            { ciudad: "Málaga", poblacion: 566000, ApeAl: "De la Torre", NombreAl: "Francisco" },
+            { ciudad: "Murcia", poblacion: 439000, ApeAl: "Serrano", NombreAl: "Jose Antonio" },
+            { ciudad: "Palma de Mallorca", poblacion: 399000, ApeAl: "Hila", NombreAl: "José" },
+            { ciudad: "Las Palmas", poblacion: 382000, ApeAl: "Hidalgo", NombreAl: "Augusto" },
+            { ciudad: "Bilbao", poblacion: 346000, ApeAl: "Aburto", NombreAl: "Juan" }
+        ]
+
+        const A = ciudades.filter(e => e.ApeAl[0] == "M");
+        const B = ciudades.reduce((a, v) => a + v.poblacion, 0);
+        // const C = ciudades.map(e => e.ciudad).sort();
+        const C = ciudades.sort((a, b) => {
+                if (a.ciudad < b.ciudad) {
+                    return -1;
+                }
+                if (a.ciudad > b.ciudad) {
+                    return 1;
+                }
+                return 0;
+            });
+        const D = ciudades.sort((a, v) => a.ApeAl < v.ApeAl);
+        const E = ciudades.map(e => { return {} });
+        const F = ciudades.reduce((a, v) => a + v.ciudad + ", ", "");
+        console.log(A);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

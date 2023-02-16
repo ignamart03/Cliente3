@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+    <script>
+        function miFuncion(n, test, act, cuerpo) {
+            for (; test(n); n = act(n)) {
+                cuerpo(n);
+            }
+        }
+
+        //miFuncion(3, n => n > 0, n => n - 1, console.log);
+
+        const ages = [3, 10, 18, 20];
+        function checkAdult(age) {
+            return age > 18;
+        }
+        // console.log(ages.some(checkAdult));
+
+        const ages2 = [33, 32, 39, 31];
+        function checkAdult(age) {
+            return age > 18;
+        }
+        //console.log(ages2.every(checkAdult));
+
+        arrayPrueba = [];   
+        function final(array) {
+            return 0;
+        }
+        console.log(final(arrayPrueba));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
