@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function primera(callback, nombre) {
+            c = nombre += "1";
+            n = 0;
+            setInterval(callback, 1500);
+        }
+
+        function callback_primera() {
+            document.getElementById("DIV").innerHTML = c;
+        }
+
+        function segunda(callback, nombre){
+            c = nombre += "2";
+            setInterval(callback, 2000);
+        }
+
+        function callback_segunda(){
+            if(n > 10) n - 1;
+            c += n++;
+        }
+
+        primera(callback_primera, "Javier");
+        segunda(callback_segunda, "PEPE");
+    </script>
+</head>
+
+<body>
+    <div id="DIV"></div>
+</body>
+
+</html>
