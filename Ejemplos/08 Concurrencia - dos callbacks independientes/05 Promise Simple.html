@@ -10,10 +10,12 @@
 
 <body>
     rick1:<span id="rick1">.</span><br>
+    igna2:<span id="igna2">.</span><br>
 
     <script>
         let promesa = []
         createPromise(0, "rick1", "Promesa 1", 2000);
+        createPromise(1, "igna2", "Promesa 2", 4000);
 
         //Creo y ejecuta las Promesas DE FORMA SINCRONA
         function createPromise(iden, id, text, delay) {
@@ -29,14 +31,15 @@
             });
         }
         //Testeamos las promises
-        promesa[0]
-            .then(data => { yaestan(data) })
-            .catch(data => document.getElementById(data[0]).textContent = "ERROR: >" + data +"< "+ Date())
-            .finally(console.log("Una birra"));
-
-        function yaestan([id0, txt0]) {
+        function yaestan([[id0, txt0], [id1, txt1]]) {
             document.getElementById(id0).textContent = txt0 + " finalizada el " + Date();
+            document.getElementById(id1).textContent = txt1 + " finalizada el " + Date();
         }
+
+        Promise.all([promesa[0], promesa[1]])
+            .then(data => { console.log(data); yaestan(data) })
+            .catch(data => document.getElementById(data[0]).textContent = "ERROR: >" + data + "< " + Date())
+            .finally(console.log("Una birra"));
     </script>
 </body>
 
