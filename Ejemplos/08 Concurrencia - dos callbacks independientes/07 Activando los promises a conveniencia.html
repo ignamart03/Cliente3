@@ -10,18 +10,18 @@
 
 <body>
     <script>
-         function asyncOperation1() {
+        function asyncOperation1() {
             return ("resultado1");
         }
 
         function asyncOperation2() {
             // simulate another asynchronous operation that returns a Promise
-            return new Promise(function (resolve, reject) {
-                setTimeout(function () {
+            return new Promise (function (resolve, reject) {
+                const hola = function {
                     console.log("PAPI")
                     resolve("resultado2");
-                }, 2000);
-            });
+                
+            }});
         }
 
         // call both operations and wait for both Promises to resolve
@@ -34,7 +34,9 @@
             })
             .catch(function (error) {
                 console.log("Error:", error);
-            });
+            })
+            .finally(console.log("AITOR MARICON"));
+
 
     </script>
 </body>

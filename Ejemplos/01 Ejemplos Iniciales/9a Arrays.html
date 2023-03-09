@@ -24,9 +24,10 @@
         console.log("MIVECTOR ES " + miVector + " con longitud=" + miVector.length);
         let matrizBi = new Array(5).fill().map(x => new Array(4));
         let miArray = { ...miVector };
-        console.log(miArray)
-        console.log("JSON.stringify "); console.log(JSON.stringify(miArray))
+        console.log(miArray);
+        console.log("JSON.stringify "); console.log(JSON.stringify(miArray));
         let miNuevoArray = JSON.parse(JSON.stringify(miArray));
+        console.log(miNuevoArray);
     </script>
 </body>
 

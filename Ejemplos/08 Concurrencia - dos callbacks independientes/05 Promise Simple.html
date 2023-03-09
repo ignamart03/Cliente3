@@ -22,7 +22,7 @@
             promesa[iden] = new Promise(function (myResolve, myReject) {
                 document.getElementById(id).textContent = "Esperando que se resuelva la Promise" + Date();
                 setTimeout(() => {
-                    if (Math.random() < 0.7) {
+                    if (Math.random() < 0.5) {
                         console.log(text + "acabó");
                         myResolve([id, text])
                     } else
